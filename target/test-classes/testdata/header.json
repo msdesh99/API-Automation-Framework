@@ -1,0 +1,17 @@
+{ "GET_BOOKINGIDS": {
+      "Content-Type":"application/json",
+      "Accept":"application/json"
+	},
+	"GET_BOOKINGBYNAME":{
+	  "Content-Type":"application/json",
+	  "Accept":"application/json"
+	},
+ "POST_USERS":{
+    "Content-Type":"application/json",
+    "Accept":"application/json"
+ },
+ "POST_LOGIN":{
+ "Content-Type":"application/json",
+ "Accept":"application/json"
+ }
+}
