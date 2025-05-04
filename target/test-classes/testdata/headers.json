@@ -1,0 +1,34 @@
+{ "GET_USERS" : {
+    "Content-Type" :"application/json",
+    "Accept":"application/json"
+	},
+"GET_USER": {
+    "Content-Type" :"application/json",
+    "Accept":"application/json"
+	},
+"POST_USER":{
+    "Content-Type" :"application/json",
+    "Accept":"application/json"
+	},
+"POST_LOGIN":{
+    "Content-Type" :"application/json",
+    "Accept":"application/json"
+	},
+"POST_LOGOUT":{
+    "Content-Type" :"application/json",
+    "Accept":"application/json"
+	},
+"GET_RESOURCES": {
+    "Content-Type" :"application/json",
+    "Accept":"application/json"
+	},
+"DELETE_USER": {
+    "Content-Type" :"application/json",
+    "Accept":"application/json"
+	},
+
+"POST_REGISTER":{
+    "Content-Type" :"application/json",
+    "Accept":"application/json"
+	}
+}
