@@ -242,13 +242,15 @@ public class LoginBookerStep1 {
         	         .header("Content-Type","application/json")
         	         .when()
         	         .get();
-        	 //System.out.println("res in ids: "+ response.asPrettyString());
-        	 LocalDate ldate = LocalDate.parse(response.jsonPath().getString("bookingdates.checkin"),dtf);
-        	// if(!ldate.isBefore(LocalDate.parse(testContext.get("checkin", String.class),dtf))) {
-              if(!ldate.isBefore(setDate)) {
-        		 System.out.println("Id: "+id+ " CheckinDate: "+ldate);
-        		  matchedIds.add(id);
-        	 }		  
+        	 if(response.statusCode()==200) {
+        		 //System.out.println("res in ids: "+ response.asPrettyString());
+        		 LocalDate ldate = LocalDate.parse(response.jsonPath().getString("bookingdates.checkin"),dtf);
+        		 // if(!ldate.isBefore(LocalDate.parse(testContext.get("checkin", String.class),dtf))) {
+        		 if(!ldate.isBefore(setDate)) {
+        			 System.out.println("Id: "+id+ " CheckinDate: "+ldate);
+        			 matchedIds.add(id);
+        		 }
+        	 }	 
          }
          LocalDateTime ldt2 = LocalDateTime.now();
          System.out.println("Traditional approach End Time: "+ ldt2);
@@ -292,7 +294,7 @@ public class LoginBookerStep1 {
 
      @Then("user should receive the booking details matching to checkin")
      public void user_should_receive_the_booking_details_matching_to_checkin() {
-         
+          
      }
 
 }
