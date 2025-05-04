@@ -1,5 +1,5 @@
-# API-Automation-Framework\n
-Developing a robust, data-driven API automation framework
+# API-Automation-Framework
+Developing a robust, data-driven API automation framework"\n"
 A scalable, data-driven API automation framework built with Cucumber, TestNG, RestAssured, and Java 8. Designed for performance benchmarking, real-world API testing, and easy extensibility.
 Features:
 Cucumber BDD – Human-readable test definitions
