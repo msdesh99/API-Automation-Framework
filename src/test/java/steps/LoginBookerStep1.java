@@ -232,7 +232,8 @@ public class LoginBookerStep1 {
         LocalDateTime ldt1 = LocalDateTime.now();
         System.out.println("Fetching booking Ids using traditional approach Start Time: "+ ldt1);
          //for(int id: ids) {
-         for(int i=0; i<100;i++) {      	 
+         int idTot = ids.size()>100? 100:ids.size();
+         for(int i=0; i<idTot;i++) {      	 
             int id = ids.get(i);
         	 response = RestAssured.given()
         	         .baseUri(testContext.configReader.get("baseUri"))
@@ -264,7 +265,7 @@ public class LoginBookerStep1 {
          LocalDateTime ldt3 = LocalDateTime.now();
          System.out.println("Parallel approach Start Time: "+ ldt3);		 
          
-         List<Integer> li2 = IntStream.range(0, 100).parallel()
+         List<Integer> li2 = IntStream.range(0, idTot).parallel()
          .boxed()
          .map(i->{
         	    try {   
