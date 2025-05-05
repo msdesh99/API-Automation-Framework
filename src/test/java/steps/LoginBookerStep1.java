@@ -271,12 +271,17 @@ public class LoginBookerStep1 {
          .boxed()
          .map(i->{
         	    try {   
-        	         Response response1 = RestAssured.given()
+        	         ValidatableResponse validResponse1 = RestAssured.given()
         	    		   .baseUri(testContext.configReader.get("baseUri"))
         	    		   .basePath("/booking/"+i)
         	    		   .header("Content-Type","application/json")
-        	    		   .when().get();  
-        	           LocalDate ldate = LocalDate.parse(response1.jsonPath().getString("bookingdates.checkin"),dtf);
+        	    		   .when().get()
+        	    		   .then().statusCode(200);
+        	         LocalDate ldate = LocalDate.parse(
+        	        		 validResponse1.extract().jsonPath().getString("bookingdates.checkin"),dtf
+        	        		 );
+        	         //  LocalDate ldate = LocalDate.parse(
+        	        //       response1.jsonPath().getString("bookingdates.checkin"),dtf);
         	        	   return !ldate.isBefore(setDate)?i:null; 
         	    }catch(Exception pe) {
         	    	//System.out.println(pe.getMessage());
